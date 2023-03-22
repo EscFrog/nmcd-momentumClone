@@ -1,12 +1,14 @@
-const a = 5;
-const b = 2;
-let myName = "walter";
+const h1 = document.querySelector("div.hello:first-child h1");
 
-console.log(a + b);
-console.log(a * b);
-console.log(a / b);
-console.log("hello " + myName);
+function handleTitleClick() {
+  const currentColor = h1.style.color;
+  let newColor;
+  if (currentColor === "blue") {
+    newColor = "tomato";
+  } else {
+    newColor = "blue";
+  }
+  h1.style.color = newColor;
+}
 
-myName = "manjin";
-
-console.log("Nice to meet you " + myName);
+h1.addEventListener("click", handleTitleClick);

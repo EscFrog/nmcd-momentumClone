@@ -1,14 +1,9 @@
+const loginForm = document.querySelector("#login-form");
 const loginInput = document.querySelector("#login-form input");
-const loginButton = document.querySelector("#login-form button");
 
-function hadleBtnClick() {
-  const username = loginInput.value;
-  // if (username === "") {
-  //   alert("Please write your name");
-  // } else if (username.length > 15) {
-  //   alert("Your name is too long.");
-  // }
-  console.log(username);
+function onLoginSubmit(event) {
+  event.preventDefault(); // submit 이벤트가 발생할 때 브라우저의 기본 동작을 막는다. 새로고침을 말함.
+  console.log(loginInput.value);
 }
 
-// loginButton.addEventListener("click", hadleBtnClick);
+loginForm.addEventListener("submit", onLoginSubmit);

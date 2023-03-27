@@ -8,7 +8,7 @@ function onLoginSubmit(event) {
   event.preventDefault(); // submit 이벤트가 발생할 때 브라우저의 기본 동작을 막는다. 새로고침을 말함.
   loginForm.classList.add(HIDDEN_CLASSNAME);
   const username = loginInput.value;
-  // greeting.innerText = "Hello " + username;
+  localStorage.setItem("username", username); // 나중에 불러올 수 있도록 localStorage에 값을 저장할 수 있다.
   greeting.innerText = `Hello ${username}`;
   greeting.classList.remove(HIDDEN_CLASSNAME);
 }

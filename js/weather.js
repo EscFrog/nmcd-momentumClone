@@ -7,12 +7,15 @@ function onGeoOK(position) {
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
-      const city = document.querySelector("#weather span:last-child");
-      const weather = document.querySelector("#weather span:first-child");
+      const city = document.querySelector("#city span");
+      const temp = document.querySelector("#weather span:first-child");
+      const weather = document.querySelector("#weather span:last-child");
       city.innerText = data.name;
-      weather.innerText = `${data.weather[0].main} / ${data.main.temp}`;
+      weather.innerText = data.weather[0].main;
+      temp.innerText = `${data.main.temp}º`;
     });
 }
+
 function onGeoError() {
   alert("Can't find you. No weather for you.");
 }

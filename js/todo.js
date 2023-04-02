@@ -20,11 +20,14 @@ function deleteToDo(event) {
 function paintToDo(newTodo) {
   const li = document.createElement("li");
   li.id = newTodo.id;
+  const div = document.createElement("div");
+  div.innerText = "●";
   const span = document.createElement("span");
   span.innerText = newTodo.text;
   const button = document.createElement("button");
-  button.innerText = "❌";
+  button.innerText = "X";
   button.addEventListener("click", deleteToDo);
+  li.appendChild(div);
   li.appendChild(span);
   li.appendChild(button);
   toDoList.appendChild(li);
@@ -32,16 +35,20 @@ function paintToDo(newTodo) {
 
 function hadleToDoSubmit(event) {
   event.preventDefault();
-  const newTodo = toDoInput.value;
-  toDoInput.value = "";
-  const newTodoObj = {
-    // 현재 시간을 id로 사용하기 위해 새로운 투두를 오브젝트로 전달한다.
-    text: newTodo,
-    id: Date.now(),
-  };
-  toDos.push(newTodoObj);
-  paintToDo(newTodoObj);
-  saveToDos();
+  if (toDos.length < 5) {
+    const newTodo = toDoInput.value;
+    toDoInput.value = "";
+    const newTodoObj = {
+      // 현재 시간을 id로 사용하기 위해 새로운 투두를 오브젝트로 전달한다.
+      text: newTodo,
+      id: Date.now(),
+    };
+    toDos.push(newTodoObj);
+    paintToDo(newTodoObj);
+    saveToDos();
+  } else {
+    alert("You can't enter more than 5 To Do");
+  }
 }
 
 toDoForm.addEventListener("submit", hadleToDoSubmit);

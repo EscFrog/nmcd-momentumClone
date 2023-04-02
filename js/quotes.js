@@ -24,7 +24,7 @@ const quotes = [
   {
     quote:
       "The fastest way to change yourself is to hang out with people who are already the way you want to be",
-    author: "REid Hoffman",
+    author: "Reid Hoffman",
   },
   {
     quote:
@@ -39,7 +39,7 @@ const quotes = [
   {
     quote:
       "The only thing worse than starting something and falling.. is not starting something",
-    author: "SEth Godin",
+    author: "Seth Godin",
   },
   {
     quote:
@@ -53,5 +53,5 @@ const author = document.querySelector("#quote span:last-child");
 
 const todaysQuote = quotes[Math.floor(Math.random() * quotes.length)];
 
-quote.innerText = todaysQuote.quote;
-author.innerText = todaysQuote.author;
+quote.innerText = `"${todaysQuote.quote}"`;
+author.innerText = `- ${todaysQuote.author} -`;
